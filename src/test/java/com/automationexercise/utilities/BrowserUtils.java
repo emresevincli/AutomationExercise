@@ -1,4 +1,4 @@
-package com.demoblaze.utilities;
+package com.automationexercise.utilities;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;

@@ -1,4 +1,4 @@
-package com.demoblaze.utilities;
+package com.automationexercise.utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;

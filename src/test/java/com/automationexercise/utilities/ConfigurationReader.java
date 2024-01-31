@@ -1,4 +1,4 @@
-package com.demoblaze.utilities;
+package com.automationexercise.utilities;
 
 import java.io.FileInputStream;
 import java.util.Properties;
