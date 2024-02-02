@@ -71,4 +71,16 @@ public class Register_stepDefs {
         registerPage.accountCreatedVerify();
     }
 
+    @When("The user should enter name and currently registered email address and click Signup button")
+    public void the_user_should_enter_name_and_currently_registered_email_address_and_click_signup_button() {
+
+        registerPage.negativeRegister();
+    }
+    @Then("The user verifies already Registered Message")
+    public void the_user_verifies_already_registered_message() {
+
+        registerPage.alreadyRegisteredMessage();
+    }
+
+
 }

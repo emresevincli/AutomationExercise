@@ -1,6 +1,7 @@
 package com.automationexercise.step_Defs;
 
 import com.automationexercise.pages.LoginPage;
+import com.automationexercise.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -46,4 +47,18 @@ public class Login_StepDefs {
 
         loginPage.errorMessage();
     }
+
+    @When("The user click on Logout button")
+    public void the_user_click_on_logout_button() {
+
+        loginPage.clickLogout();
+    }
+    @Then("The user verifies that is on the Login Page")
+    public void the_user_verifies_that_is_on_the_login_page() {
+
+        loginPage.verifyOnLoginPage();
+
+    }
+
+
 }

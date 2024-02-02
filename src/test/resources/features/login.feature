@@ -1,3 +1,4 @@
+@regression
 Feature: Login And Account Deleted
 
   Background:
@@ -14,7 +15,7 @@ Feature: Login And Account Deleted
     When The user should be able to click Delete Account button
     Then The user verifies that ACCOUNT DELETED! is visible
 
-  @wip
+
   Scenario Outline: Negative Login Test
     When The user click on Signup Login button
     Then The user verifies Login to your account is visible
@@ -23,3 +24,12 @@ Feature: Login And Account Deleted
     Examples:
       | email               | password  |
       | emre54477@gmail.com | emre12345 |
+
+
+  Scenario: Positive Login Test And Logout
+    When The user click on Signup Login button
+    Then The user verifies Login to your account is visible
+    When The user should able to enter correct email and password
+    Then The user verifies that Logged in as username is visible
+    When The user click on Logout button
+    Then The user verifies that is on the Login Page

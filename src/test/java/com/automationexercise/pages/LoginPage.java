@@ -2,6 +2,7 @@ package com.automationexercise.pages;
 
 import com.automationexercise.utilities.BrowserUtils;
 import com.automationexercise.utilities.ConfigurationReader;
+import com.automationexercise.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,6 +25,8 @@ public class LoginPage extends BasePage{
     private WebElement loggedText;
     @FindBy(xpath = "//p[text()='Your email or password is incorrect!']")
     private WebElement errorMessage;
+    @FindBy(xpath = "//a[text()=' Logout']")
+    private WebElement logoutButton;
 
     public void loginTextIsVisible(){
         String expected = loginText.getText();
@@ -62,6 +65,16 @@ public class LoginPage extends BasePage{
     public void deleteAccountText(){
         String expected = deleteAccountText.getText();
         String actual = "ACCOUNT DELETED!";
+        Assert.assertEquals(expected,actual);
+    }
+
+    public void clickLogout(){
+        BrowserUtils.clickWithJS(logoutButton);
+    }
+
+    public void verifyOnLoginPage(){
+        String expected = Driver.get().getCurrentUrl();
+        String actual = "https://automationexercise.com/login";
         Assert.assertEquals(expected,actual);
     }
 

@@ -1,4 +1,4 @@
-@register
+@regression
 Feature: Register User
 
   Background:
@@ -21,3 +21,8 @@ Feature: Register User
       | emreee | emre1234 |  | emre      | sevvvvv  | okeanx  | 5246 sokak | no55     | emreeeee@gmail.com | Alsancak | izmir | 35264   | 5556664785  |  |
 
 
+  Scenario: Negative Register
+    When The user click on Signup Login button
+    Then The user verifies New User Signup! is visible
+    When The user should enter name and currently registered email address and click Signup button
+    Then The user verifies already Registered Message

@@ -1,6 +1,7 @@
 package com.automationexercise.pages;
 
 import com.automationexercise.utilities.BrowserUtils;
+import com.automationexercise.utilities.ConfigurationReader;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -54,6 +55,8 @@ public class RegisterPage extends BasePage{
     private WebElement createAccountButton;
     @FindBy(xpath = "//b[text()='Account Created!']")
     private WebElement accountCreText;
+    @FindBy(xpath = "//p[text()='Email Address already exist!']")
+    private WebElement alreadyRegisteredText;
 
 
 
@@ -107,6 +110,21 @@ public class RegisterPage extends BasePage{
     public void accountCreatedVerify(){
         String expected = accountCreText.getText();
         String actual = "ACCOUNT CREATED!";
+        Assert.assertEquals(expected,actual);
+    }
+
+
+    public void negativeRegister(){
+        nameInputBox.sendKeys(ConfigurationReader.get("name"));
+        emailInputBox.sendKeys(ConfigurationReader.get("email"));
+        BrowserUtils.clickWithJS(signUpButton);
+    }
+
+
+    public void alreadyRegisteredMessage(){
+
+        String expected = alreadyRegisteredText.getText();
+        String actual = "Email Address already exist!";
         Assert.assertEquals(expected,actual);
     }
 
