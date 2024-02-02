@@ -10,6 +10,8 @@ public class HomePage extends BasePage {
 
     @FindBy(partialLinkText = "Signup / Login")
     private WebElement signUpButton;
+    @FindBy(partialLinkText = "Contact us")
+    private WebElement contactUsButton;
 
     @FindBy(xpath = "//h2[text()='New User Signup!']")
     private WebElement signUpText;
@@ -25,6 +27,8 @@ public class HomePage extends BasePage {
     public void clickLoginButton (){
         BrowserUtils.clickWithJS(signUpButton);
     }
+    public void clickContactUsButton (){ BrowserUtils.clickWithJS(contactUsButton); }
+
 
     public void signUpTextIsVisible(){
         String expected = "New User Signup!";

@@ -1,5 +1,5 @@
 @regression
-Feature: Login And Account Deleted
+Feature: Login, Logout, Negative Login And Account Deleted Test
 
   Background:
     Given The user should able to open launch browser
@@ -26,7 +26,7 @@ Feature: Login And Account Deleted
       | emre54477@gmail.com | emre12345 |
 
 
-  Scenario: Positive Login Test And Logout
+  Scenario: Positive Login And Logout Test
     When The user click on Signup Login button
     Then The user verifies Login to your account is visible
     When The user should able to enter correct email and password
