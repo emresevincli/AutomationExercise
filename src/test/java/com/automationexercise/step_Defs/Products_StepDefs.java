@@ -40,4 +40,23 @@ public class Products_StepDefs {
         productsPage.detailsAreVisible();
     }
 
+    @And("The user enters product name in search and click search button")
+    public void theUserEntersProductNameInSearchAndClickSearchButton() {
+
+        productsPage.productSearch();
+
+    }
+
+    @Then("The user verifies that SEARCHED PRODUCTS is visible")
+    public void theUserVerifiesThatSEARCHEDPRODUCTSIsVisible() {
+
+        productsPage.searchedProductIsVisible();
+    }
+
+    @Then("The user verifies all the products related to search are visible")
+    public void theUserVerifiesAllTheProductsRelatedToSearchAreVisible() {
+
+        productsPage.allSearchedProductsIsVisible();
+
+    }
 }

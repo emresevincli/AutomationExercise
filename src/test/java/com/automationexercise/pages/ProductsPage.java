@@ -39,6 +39,18 @@ public class ProductsPage extends BasePage{
     @FindBy (xpath = "//div[@class='features_items']")
     private WebElement allProductsList;
 
+    @FindBy (xpath = "//input[@id='search_product']")
+    private WebElement allProductsSearchBox;
+
+    @FindBy (xpath = "//button[@id='submit_search']")
+    private WebElement allProductsSearchButton;
+
+    @FindBy (xpath = "//div[@class='productinfo text-center']//p[contains(text(),'Men Tshirt')]")
+    private WebElement tShirtProduct1;
+
+    @FindBy (xpath = "//div[@class='features_items']")
+    private WebElement allSearchedProducts;
+
 
     public void clickProducts(){
         BrowserUtils.clickWithJS(productsBtn);
@@ -79,5 +91,24 @@ public class ProductsPage extends BasePage{
         Assert.assertTrue(firstProductBrand.isDisplayed());
     }
 
+    public void productSearch(){
+
+        allProductsSearchBox.sendKeys("Tshirt");
+        BrowserUtils.clickWithJS(allProductsSearchButton);
+
+    }
+
+    public void searchedProductIsVisible(){
+
+        String actualProductName = tShirtProduct1.getText();
+        String expectedProductName = "Men Tshirt";
+        Assert.assertEquals(actualProductName,expectedProductName);
+
+    }
+
+    public void allSearchedProductsIsVisible(){
+
+        Assert.assertTrue(allSearchedProducts.isDisplayed());
+    }
 
 }
