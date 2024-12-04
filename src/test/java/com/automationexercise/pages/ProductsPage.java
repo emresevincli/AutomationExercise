@@ -52,10 +52,27 @@ public class ProductsPage extends BasePage{
     private WebElement allSearchedProducts;
 
 
+    /**
+     * Clicks on the Products button using JavaScript.
+     * This method is used to navigate to the Products page.
+     *
+     * The method uses BrowserUtils.clickWithJS() instead of a regular click
+     * to ensure the element is clicked even if it's not immediately clickable
+     * due to overlay or other issues.
+     */
     public void clickProducts(){
         BrowserUtils.clickWithJS(productsBtn);
     }
 
+    /**
+     * Verifies that the "ALL PRODUCTS" text is displayed correctly on the page.
+     *
+     * This method compares the expected text "ALL PRODUCTS" with the actual text
+     * retrieved from the allProductsText WebElement. It uses JUnit's Assert.assertEquals
+     * to perform the comparison.
+     *
+     * @throws AssertionError if the actual text does not match the expected text
+     */
     public void verifyAllProducts(){
 
         String expected = "ALL PRODUCTS";
@@ -64,6 +81,14 @@ public class ProductsPage extends BasePage{
         Assert.assertEquals(expected, actual);
     }
 
+    /**
+     * Verifies that the list of all products is visible on the page.
+     *
+     * This method checks if the WebElement representing the list of all products
+     * is displayed on the page. It uses JUnit's Assert.assertTrue to perform the verification.
+     *
+     * @throws AssertionError if the list of all products is not displayed
+     */
     public void allProductsIsVisible(){
 
         Assert.assertTrue(allProductsList.isDisplayed());
@@ -98,6 +123,15 @@ public class ProductsPage extends BasePage{
 
     }
 
+    /**
+     * Verifies that the searched product is visible on the page.
+     * This method checks if the actual product name matches the expected product name.
+     *
+     * The method retrieves the text of the 'tShirtProduct1' WebElement and compares it
+     * with the expected product name "Men Tshirt" using JUnit's Assert.assertEquals.
+     *
+     * @throws AssertionError if the actual product name does not match the expected product name
+     */
     public void searchedProductIsVisible(){
 
         String actualProductName = tShirtProduct1.getText();
